@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using MarsRoverTracking.Models;
 
 namespace MarsRoverTracking.Controllers
 {
@@ -29,10 +30,12 @@ namespace MarsRoverTracking.Controllers
         }
 
 
-        [HttpPut]
+        [HttpPost]
         //[Route("api/rover/move")]
-        public HttpResponseMessage MoveRover(string roverId)
+        public HttpResponseMessage MoveRover(RoverUpdateModel roverUpdateModel)
         {
+            if (!ModelState.IsValid)
+                return Request.CreateResponse(HttpStatusCode.BadRequest, "Incorrect Data,please check your parameters!");
             return null;
 
         }
