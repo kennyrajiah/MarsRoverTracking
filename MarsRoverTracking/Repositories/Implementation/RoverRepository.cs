@@ -12,8 +12,20 @@ namespace MarsRoverTracking.Repositories.Implementation
     {
         public static readonly string Connection = "Filename=rover.litedb4; Mode=Exclusive;";
 
-        public void SaveRoverInfo()
+        public RoverModel CreateRoverInfo(string id)
         {
+            using (var db = new LiteDatabase(Connection))
+            {
+                var collection = db.GetCollection<RoverModel>("roverModel");
+                var rover = new RoverModel
+                {          
+                    Id = id,
+                    CurrentX = 0,
+                    CurrentY = 0
+                };
+                collection.Insert(rover);
+                return rover;
+            }
            
         }
 
@@ -23,19 +35,25 @@ namespace MarsRoverTracking.Repositories.Implementation
             using (var db = new LiteDatabase(Connection))
             {
                 var collection = db.GetCollection<RoverModel>("roverModel");
-
-                collection.EnsureIndex(x => x.Name);
-
                  resultModel = collection.Find(x => x.Id == "1").FirstOrDefault();
-
-
             }
+
             return resultModel;
         }
 
-        public void UpdateRoverInfo()
+        public RoverModel UpdateRoverInfo(RoverModel roverModel)
         {
-           
+            RoverModel resultModel;
+
+            using (var db = new LiteDatabase(Connection))
+            {
+                var collection = db.GetCollection<RoverModel>("roverModel");
+                resultModel = collection.Find(x => x.Id == "1").FirstOrDefault();
+                collection.Update(roverModel);
+                resultModel = collection.Find(x => x.Id == "1").FirstOrDefault();
+
+                return resultModel;
+            }
         }
 
     }

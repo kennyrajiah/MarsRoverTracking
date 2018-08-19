@@ -9,7 +9,8 @@ namespace MarsRoverTracking.Service.Interface
     public interface IRoverService
     {
         RoverModel GetRover(string id);
-
+        RoverModel MoveRover(RoverUpdateModel roverCommandModel);
+        
 
     }
 }

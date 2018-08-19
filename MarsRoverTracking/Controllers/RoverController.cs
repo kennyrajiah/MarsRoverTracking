@@ -20,13 +20,13 @@ namespace MarsRoverTracking.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage GetRoverPosition(string roverId)
+        public HttpResponseMessage GetRover(string roverId)
         {
             var rover = _roverService.GetRover(roverId);
             if (rover == null)
                 return Request.CreateResponse(HttpStatusCode.NotFound, "Could not Locate RoverId:" + roverId + " ,Please Create/Update a Rover!");
 
-            return Request.CreateResponse(HttpStatusCode.OK, "Located RoverId:" + rover.Id + ", Name:" + rover.Name + " at :(" + rover.CurrentX + "," + rover.CurrentY + ")" + rover.CurrentDirection);
+            return Request.CreateResponse(HttpStatusCode.OK, "Located RoverId:" + rover.Id +  " at :(" + rover.CurrentX + "," + rover.CurrentY + ")" );
         }
 
 
@@ -36,6 +36,10 @@ namespace MarsRoverTracking.Controllers
         {
             if (!ModelState.IsValid)
                 return Request.CreateResponse(HttpStatusCode.BadRequest, "Incorrect Data,please check your parameters!");
+
+            var roverModel = _roverService.MoveRover(roverUpdateModel);
+
+
             return null;
 
         }

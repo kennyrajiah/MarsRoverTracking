@@ -7,9 +7,9 @@ using MarsRoverTracking.Models;
 namespace MarsRoverTracking.Repositories.Interface
 {
     public interface IRoverRepository
-    { 
-        void SaveRoverInfo();
+    {
+        RoverModel CreateRoverInfo(string id);
         RoverModel ReadRoverInfo(string id);
-        void UpdateRoverInfo();
+        RoverModel UpdateRoverInfo(RoverModel roverModel);
     }
 }

@@ -25,6 +25,24 @@ namespace MarsRoverTracking.Service.Implementation
             return getRover;
         }
 
+        public RoverModel MoveRover(RoverUpdateModel roverCommandModel)
+        {
+            //locate if that rover has been already added
+            var getRover = _roverRepository.ReadRoverInfo(roverCommandModel.Id);
+
+            if (getRover==null)
+                //create
+
+                return null;
+
+            //var rover = myList[roverCommandModel.Id];
+            ////Mapt to MoveRoverModel
+            //var moveRoverModel = MapToModelMoveModel(rover.Id, rover.CurrentX, rover.CurrentY, rover.Name, rover.CurrentDirection);
+
+            return getRover;
+        }
+
+
 
     }
 }
