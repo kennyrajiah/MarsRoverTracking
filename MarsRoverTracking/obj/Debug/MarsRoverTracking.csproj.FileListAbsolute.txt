@@ -98,3 +98,5 @@ C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\bin\Unity.Ab
 C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\bin\Unity.AspNet.WebApi.dll
 C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\bin\Unity.Container.dll
 C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\bin\WebActivatorEx.dll
+C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\bin\LiteDB.dll
+C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\bin\LiteDB.xml

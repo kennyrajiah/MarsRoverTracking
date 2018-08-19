@@ -12,17 +12,17 @@ namespace MarsRoverTracking.Service.Implementation
     {
         private readonly IRoverRepository _roverRepository;
 
-        public RoverService(/*IRoverRepository roverRepository*/)
+        public RoverService(IRoverRepository roverRepository)
         {
-            // _roverRepository = roverRepository;
+            _roverRepository = roverRepository;
         }
 
 
         public RoverModel GetRover(string id)
         {
-           
+            var getRover = _roverRepository.ReadRoverInfo(id);
 
-            return null;
+            return getRover;
         }
 
 
