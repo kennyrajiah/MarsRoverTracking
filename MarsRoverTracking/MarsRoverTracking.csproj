@@ -185,6 +185,11 @@
     </Compile>
     <Compile Include="Models\RoverModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Implementation\RoverRepository.cs" />
+    <Compile Include="Repositories\Interface\IRoverRepository.cs" />
+    <Compile Include="Service\Implementation\RoverService.cs" />
+    <Compile Include="Service\Interface\IRoverService.cs" />
+    <Compile Include="Utilities\Cardinals.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
