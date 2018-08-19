@@ -18,7 +18,7 @@ namespace MarsRoverTracking.Service.Implementation
         }
 
 
-        public RoverModel GetRover(int id)
+        public RoverModel GetRover(string id)
         {
            
 

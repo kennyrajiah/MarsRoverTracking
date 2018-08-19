@@ -13,14 +13,16 @@ namespace MarsRoverTracking.Controllers
     {
         private readonly IRoverService _roverService;
 
-        //public RoverController(IRoverService roverService)
-        //{
-        //    _roverService = roverService;
-        //}
+        public RoverController(IRoverService roverService)
+        {
+            _roverService = roverService;
+        }
 
         [HttpGet]
         public HttpResponseMessage GetRoverPosition(string roverId)
         {
+            var rover = _roverService.GetRover(roverId);
+
             return null;
         }
 

@@ -8,7 +8,7 @@ namespace MarsRoverTracking.Service.Interface
 {
     public interface IRoverService
     {
-        RoverModel GetRover(int id);
+        RoverModel GetRover(string id);
 
 
     }

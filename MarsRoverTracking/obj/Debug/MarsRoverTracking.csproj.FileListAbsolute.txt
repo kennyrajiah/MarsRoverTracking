@@ -94,3 +94,7 @@ C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\obj\Debug\Ma
 C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\obj\Debug\MarsRoverTracking.csproj.CoreCompileInputs.cache
 C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\obj\Debug\MarsRoverTracking.dll
 C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\obj\Debug\MarsRoverTracking.pdb
+C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\bin\Unity.Abstractions.dll
+C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\bin\Unity.AspNet.WebApi.dll
+C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\bin\Unity.Container.dll
+C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\bin\WebActivatorEx.dll
