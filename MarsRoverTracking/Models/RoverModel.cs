@@ -7,7 +7,7 @@ namespace MarsRoverTracking.Models
        
         public string Id { get; set; }
 
-       // public string CurrentDirection { get; set; }
+        public string CurrentDirection { get; set; }
 
         public int CurrentX { get; set; }
 

@@ -26,7 +26,7 @@ namespace MarsRoverTracking.Controllers
             if (rover == null)
                 return Request.CreateResponse(HttpStatusCode.NotFound, "Could not Locate RoverId:" + roverId + " ,Please Create/Update a Rover!");
 
-            return Request.CreateResponse(HttpStatusCode.OK, "Located RoverId:" + rover.Id +  " at :(" + rover.CurrentX + "," + rover.CurrentY + ")" );
+            return Request.CreateResponse(HttpStatusCode.OK, "Located RoverId:" + rover.Id +  " at :(" + rover.CurrentX + "," + rover.CurrentY + ")"+ rover.CurrentDirection );
         }
 
 
@@ -36,11 +36,19 @@ namespace MarsRoverTracking.Controllers
         {
             if (!ModelState.IsValid)
                 return Request.CreateResponse(HttpStatusCode.BadRequest, "Incorrect Data,please check your parameters!");
+            
+            //Check if rover exist First
+            var roverModel = _roverService.GetRover(roverUpdateModel.Id);
 
-            var roverModel = _roverService.MoveRover(roverUpdateModel);
+            if (roverModel == null)
+            {
+             var createdRover=  _roverService.CreateRover(roverUpdateModel);
+                _roverService.SetPosition(createdRover.CurrentX, createdRover.CurrentY);
+                _roverService.Process(roverUpdateModel.MovementInstruction);
+             var finalPosition = _roverService.RoverCurrentPosition(roverUpdateModel.Id);
+            }
 
-
-            return null;
+            return Request.CreateResponse(HttpStatusCode.OK);
 
         }
 

@@ -21,7 +21,8 @@ namespace MarsRoverTracking.Repositories.Implementation
                 {          
                     Id = id,
                     CurrentX = 0,
-                    CurrentY = 0
+                    CurrentY = 0,
+                    CurrentDirection = "N"
                 };
                 collection.Insert(rover);
                 return rover;
@@ -43,14 +44,12 @@ namespace MarsRoverTracking.Repositories.Implementation
 
         public RoverModel UpdateRoverInfo(RoverModel roverModel)
         {
-            RoverModel resultModel;
-
+           
             using (var db = new LiteDatabase(Connection))
             {
                 var collection = db.GetCollection<RoverModel>("roverModel");
-                resultModel = collection.Find(x => x.Id == "1").FirstOrDefault();
                 collection.Update(roverModel);
-                resultModel = collection.Find(x => x.Id == "1").FirstOrDefault();
+                var resultModel = collection.Find(x => x.Id == "1").FirstOrDefault();
 
                 return resultModel;
             }
