@@ -100,3 +100,4 @@ C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\bin\Unity.Co
 C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\bin\WebActivatorEx.dll
 C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\bin\LiteDB.dll
 C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\bin\LiteDB.xml
+C:\Users\WZ8FQV\Desktop\ARRIVAL\MarsRoverTracking\MarsRoverTracking\bin\Swashbuckle.Core.dll
