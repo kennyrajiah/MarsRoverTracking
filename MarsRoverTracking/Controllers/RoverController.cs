@@ -9,7 +9,7 @@ using MarsRoverTracking.Models;
 
 namespace MarsRoverTracking.Controllers
 {
-    
+ 
     public class RoverController : ApiController
     {
         private readonly IRoverService _roverService;
@@ -20,6 +20,7 @@ namespace MarsRoverTracking.Controllers
         }
 
         [HttpGet]
+        [Route("v1/rover")]
         public HttpResponseMessage GetRover(string roverId)
         {
             var rover = _roverService.GetRover(roverId);
@@ -31,7 +32,7 @@ namespace MarsRoverTracking.Controllers
 
 
         [HttpPost]
-        //[Route("api/rover/move")]
+        [Route("v1/rover/move")]
         public HttpResponseMessage MoveRover(RoverUpdateModel roverUpdateModel)
         {
             if (!ModelState.IsValid)
