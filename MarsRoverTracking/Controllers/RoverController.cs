@@ -41,14 +41,13 @@ namespace MarsRoverTracking.Controllers
             var roverModel = _roverService.GetRover(roverUpdateModel.Id);
 
             if (roverModel == null)
-            {
-             var createdRover=  _roverService.CreateRover(roverUpdateModel);
-                _roverService.SetPosition(createdRover.CurrentX, createdRover.CurrentY);
-                _roverService.Process(roverUpdateModel.MovementInstruction);
-             var finalPosition = _roverService.RoverCurrentPosition(roverUpdateModel.Id);
-            }
+                roverModel = _roverService.CreateRover(roverUpdateModel);
+              
+            _roverService.SetPosition(roverModel.CurrentX, roverModel.CurrentY);
+            _roverService.Process(roverUpdateModel.MovementInstruction);
+            var finalRoverPosition = _roverService.RoverCurrentPosition(roverUpdateModel.Id);
 
-            return Request.CreateResponse(HttpStatusCode.OK);
+            return Request.CreateResponse(HttpStatusCode.OK, "Updated RoverId:" + finalRoverPosition.Id +"moved to :(" + finalRoverPosition.CurrentX + "," + finalRoverPosition.CurrentY + ")" + finalRoverPosition.CurrentDirection);
 
         }
 
