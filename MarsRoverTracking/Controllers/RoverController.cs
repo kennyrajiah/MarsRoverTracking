@@ -1,7 +1,4 @@
 ﻿using MarsRoverTracking.Service.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -25,18 +22,19 @@ namespace MarsRoverTracking.Controllers
         {
             var rover = _roverService.GetRover(id);
             if (rover == null)
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Could not Locate RoverId:" + id + " ,Please Create/Update a Rover!");
+                     return Request.CreateResponse(HttpStatusCode.NotFound, $"Could not Locate RoverId: {id},Please Create/Update a Rover!");
 
-            return Request.CreateResponse(HttpStatusCode.OK, "Located RoverId:" + rover.Id +  " at :(" + rover.CurrentX + "," + rover.CurrentY + ")"+ rover.CurrentDirection );
+        
+            return Request.CreateResponse(HttpStatusCode.OK, $"Located RoverId: {id} at :({rover.CurrentX},{rover.CurrentY}) {rover.CurrentDirection}");
         }
-
+  
 
         [HttpPost]
         [Route("v1/rover/move")]
         public HttpResponseMessage MoveRover(RoverUpdateModel roverUpdateModel)
         {
             if (!ModelState.IsValid)
-                return Request.CreateResponse(HttpStatusCode.BadRequest, "Incorrect Data,please check your parameters!");
+                return Request.CreateResponse(HttpStatusCode.BadRequest,$"Incorrect Data,please check your parameters!");
             
             //Check if rover exist First
             var roverModel = _roverService.GetRover(roverUpdateModel.Id);
@@ -49,7 +47,10 @@ namespace MarsRoverTracking.Controllers
             var finalRoverPosition = _roverService.RoverCurrentPosition(roverUpdateModel.Id);
             _roverService.UpdateRover(finalRoverPosition);
 
-            return Request.CreateResponse(HttpStatusCode.OK, "Updated RoverId:" + finalRoverPosition.Id +"moved to :(" + finalRoverPosition.CurrentX + "," + finalRoverPosition.CurrentY + ")" + finalRoverPosition.CurrentDirection);
+
+               return Request.CreateResponse(HttpStatusCode.OK, $"Updated RoverId: { finalRoverPosition.Id} ,moved to :({finalRoverPosition.CurrentX}, { finalRoverPosition.CurrentY }){ finalRoverPosition.CurrentDirection}");
+
+  
 
         }
 

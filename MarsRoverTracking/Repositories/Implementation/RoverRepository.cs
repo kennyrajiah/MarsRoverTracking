@@ -12,7 +12,7 @@ namespace MarsRoverTracking.Repositories.Implementation
     
     public class RoverRepository:IRoverRepository
     {
-        public static readonly string Connection = "Filename=rover.litedb4; Mode=Exclusive;";
+        public static readonly string Connection = "Filename=rover.litedb; Mode=Exclusive;";
 
         public RoverModel CreateRoverInfo(string id)
         {

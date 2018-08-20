@@ -71,7 +71,8 @@ namespace MarsRoverTracking.Service.Implementation
                         Move();
                         break;
                     default:
-                        throw new ArgumentException(string.Format("Invalid value: {0}", command));
+              
+                        throw new ArgumentException($"Invalid value: {command}");
                 }
             }
         }
