@@ -38,7 +38,7 @@ namespace MarsRoverTracking.Repositories.Implementation
             using (var db = new LiteDatabase(Connection))
             {
                 var collection = db.GetCollection<RoverModel>("roverModel");
-                 resultModel = collection.Find(x => x.Id == "1").FirstOrDefault();
+                 resultModel = collection.Find(x => x.Id == id).FirstOrDefault();
             }
 
             return resultModel;
