@@ -20,12 +20,12 @@ namespace MarsRoverTracking.Controllers
         }
 
         [HttpGet]
-        [Route("v1/rover")]
-        public HttpResponseMessage GetRover(string roverId)
+        [Route("v1/rover/{id:length(1,10)}")]
+        public HttpResponseMessage GetRover(string id)
         {
-            var rover = _roverService.GetRover(roverId);
+            var rover = _roverService.GetRover(id);
             if (rover == null)
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Could not Locate RoverId:" + roverId + " ,Please Create/Update a Rover!");
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Could not Locate RoverId:" + id + " ,Please Create/Update a Rover!");
 
             return Request.CreateResponse(HttpStatusCode.OK, "Located RoverId:" + rover.Id +  " at :(" + rover.CurrentX + "," + rover.CurrentY + ")"+ rover.CurrentDirection );
         }
