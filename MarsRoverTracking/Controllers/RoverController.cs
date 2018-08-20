@@ -46,6 +46,7 @@ namespace MarsRoverTracking.Controllers
             _roverService.SetPosition(roverModel.CurrentX, roverModel.CurrentY);
             _roverService.Process(roverUpdateModel.MovementInstruction);
             var finalRoverPosition = _roverService.RoverCurrentPosition(roverUpdateModel.Id);
+            _roverService.UpdateRover(finalRoverPosition);
 
             return Request.CreateResponse(HttpStatusCode.OK, "Updated RoverId:" + finalRoverPosition.Id +"moved to :(" + finalRoverPosition.CurrentX + "," + finalRoverPosition.CurrentY + ")" + finalRoverPosition.CurrentDirection);
 

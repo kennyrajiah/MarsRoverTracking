@@ -49,7 +49,7 @@ namespace MarsRoverTracking.Repositories.Implementation
             {
                 var collection = db.GetCollection<RoverModel>("roverModel");
                 collection.Update(roverModel);
-                var resultModel = collection.Find(x => x.Id == "1").FirstOrDefault();
+                var resultModel = collection.Find(x => x.Id == roverModel.Id).FirstOrDefault();
 
                 return resultModel;
             }
