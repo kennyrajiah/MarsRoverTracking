@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using MarsRoverTracking.Models;
 using MarsRoverTracking.Repositories.Interface;
 using MarsRoverTracking.Service.Interface;
@@ -112,20 +109,20 @@ namespace MarsRoverTracking.Service.Implementation
         {
             char dir = Char.MinValue;
 
-            if (_facing == 1)
+            if (_facing == N)
             {
 
                 dir = 'N';
             }
-            else if (_facing == 2)
+            else if (_facing == E)
             {
                 dir = 'E';
             }
-            else if (_facing == 3)
+            else if (_facing == S)
             {
                 dir = 'S';
             }
-            else if (_facing == 4)
+            else if (_facing == W)
             {
                 dir = 'W';
             }
